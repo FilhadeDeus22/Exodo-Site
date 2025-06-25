@@ -2,20 +2,21 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Êxodo da Semente</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Êxodo da Semente</h1>
+    <div class="container header-flex">
+      <img src="img/logo.png" alt="Logo Êxodo da Semente" class="logo">
       <nav>
         <ul>
           <li><a href="#inicio">Início</a></li>
+          <li><a href="#produtos">Produtos</a></li>
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="#pedido">Faça seu pedido</a></li>
         </ul>
       </nav>
     </div>
@@ -23,50 +24,72 @@
 
   <section id="inicio" class="hero">
     <div class="container">
-      <h2>Sabor, Cultura e Inovação</h2>
-      <p>Descubra nossos produtos com identidade africana e qualidade única.</p>
+      <h1>Bem-vindo à Êxodo da Semente</h1>
+      <p>Pastelaria artesanal com alma africana.</p>
+    </div>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <div class="container">
+      <h2>Nossos Produtos</h2>
+      <div class="produtos-grid">
+        <div class="produto-card">
+  <a href="img/pastel1.jpg" target="_blank">
+    <img src="img/pastel1.jpg" alt="Pastel doce">
+  </a>
+  <h3>Pizza Rectangular</h3>
+  <p>Recheios: Frango, Chouriço, Bacon, Queijos.</p>
+  <span class="preco">2.500 Kz</span>
+</div>
+        <div class="produto-card">
+  <a href="img/pastel2.jpg" target="_blank">
+    <img src="img/pastel2.jpg" alt="Pastel salgado">
+  </a>
+  <h3>Trança</h3>
+  <p>Frango temperado, crocante por fora e suculento por dentro.</p>
+  <span class="preco">3.000 Kz</span>
+</div>
+      </div>
     </div>
   </section>
 
   <section id="sobre" class="sobre">
     <div class="container">
       <h2>Sobre Nós</h2>
-      <p>Somos a Êxodo da Semente, uma empresa angolana que atua no setor alimentar com inovação, tradição e excelência. Criamos produtos que valorizam a cultura africana, como a pizza no formato de África e de Angola.</p>
+      <p>Na Êxodo da Semente, combinamos sabor, criatividade e tradição. Criamos experiências gastronômicas com identidade africana e amor pela pastelaria.</p>
     </div>
   </section>
 
-  <section id="servicos" class="servicos">
-    <div class="container">
-      <h2>Nossos Serviços</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Afri-Pizza</h3>
-          <p>Pizza artesanal no formato de África — uma experiência única de sabor e identidade.</p>
-        </div>
-        <div class="card">
-          <h3>Pastelaria</h3>
-          <p>Doces tradicionais com um toque moderno e ingredientes naturais.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contato" class="contato">
-    <div class="container">
-      <h2>Fale Connosco</h2>
-      <form>
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu email" required />
-        <textarea placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
-  </section>
-
+ <section id="pedido" class="contato">
+  <div class="container">
+    <h2>Faça seu pedido</h2>
+    <form id="pedidoForm">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+     <input type="text" id="endereco" placeholder="Seu endereço" required />
+      <textarea id="mensagem" placeholder="Detalhe seu pedido (sabores, quantidade, etc)" required></textarea>
+      <button type="submit">Enviar via WhatsApp</button>
+    </form>
+  </div>
+</section>
   <footer>
     <div class="container">
       <p>&copy; 2025 Êxodo da Semente. Todos os direitos reservados.</p>
     </div>
   </footer>
+  <script>
+  document.getElementById('pedidoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const endereco = document.getElementById('endereco').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const texto = `Olá, meu nome é ${nome}.%0AMeu endereço é: ${endereco}%0ADesejo fazer o seguinte pedido:%0A${mensagem}`;
+    const telefone = "244921757303";
+    const url = `https://wa.me/${telefone}?text=${texto}`;
+
+    window.open(url, '_blank');
+  });
+</script>
 </body>
 </html>
